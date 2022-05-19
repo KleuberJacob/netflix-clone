@@ -1,30 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Tmdb from './Tmdb'
+import Tmdb from './Tmdb';
+import ListMovieRow from './components/MovieRow';
+import FeaturedMovie from './components/FeaturedMovie';
 
 const App = () => {
-  const [load, setLoad] = useState([])
+  const [dataMovies, setDataMovies] = useState([]);
+  const [featureData, setFeatureData] = useState(null);
 
   useEffect(() => {
-    const load = async () => {
-      const list = await Tmdb.get1()
-      console.log(list)
-    }
-
-    load()
-    
-    /* const loadAll = async () => {
+    const loadList = async () => {
       const list = await Tmdb.getHomeList()
-      console.log(await Tmdb.getHomeList())
-    }
-    loadAll() */
+      setDataMovies(list)
+      
+      const originals = list.filter(item => item.slug === "originals")
+      const randomChoose = Math.floor(Math.random() * (originals[0].items.data.results.length - 1))
+      const choose = originals[0].items.data.results[randomChoose]
+      const dataFeaturedMovie = await Tmdb.getDataMovieInfo(choose.id, 'tv')
+      console.log(dataFeaturedMovie)
+    } 
+    loadList()    
   }, []);
 
   return (
-    <div>
-
+    <div className='page'>
+      {featureData && 
+        <FeaturedMovie item={featureData}/>
+      }
+      <section>
+        {dataMovies.map((item, key) => (
+          <ListMovieRow key={key} title={item.title} items={item.items}/>
+        ))}
+      </section>
     </div>
   )
-}
+};
 
 export default App;
