@@ -17,6 +17,7 @@ const App = () => {
       const randomChoose = Math.floor(Math.random() * (originals[0].items.data.results.length - 1))
       const choose = originals[0].items.data.results[randomChoose]
       const dataFeaturedMovie = await Tmdb.getDataMovieInfo(choose.id, 'tv')
+      setFeatureData(dataFeaturedMovie)
       console.log(dataFeaturedMovie)
     } 
     loadList()    

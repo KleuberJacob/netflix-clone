@@ -65,7 +65,8 @@ const allConsults = {
                     info = await basicReq(`/tv/${movieId}?${language}&api_key=${process.env.REACT_APP_API_KEY}`)
                 break;
                 default:
-
+                    info = null
+                break
             }
         }
 
