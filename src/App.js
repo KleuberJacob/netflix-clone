@@ -3,10 +3,13 @@ import './App.css';
 import Tmdb from './Tmdb';
 import ListMovieRow from './components/MovieRow';
 import FeaturedMovie from './components/FeaturedMovie';
+import Header from './components/Header';
 
 const App = () => {
   const [dataMovies, setDataMovies] = useState([]);
   const [featureData, setFeatureData] = useState(null);
+  const [headerBlack, setHeaderBlack] = useState(true);
+
 
   useEffect(() => {
     const loadList = async () => {
@@ -18,17 +21,17 @@ const App = () => {
       const choose = originals[0].items.data.results[randomChoose]
       const dataFeaturedMovie = await Tmdb.getDataMovieInfo(choose.id, 'tv')
       setFeatureData(dataFeaturedMovie)
-      console.log(dataFeaturedMovie)
     } 
     loadList()    
   }, []);
 
   return (
     <div className='page'>
+      <Header headerBlack={headerBlack}/>
       {featureData && 
         <FeaturedMovie item={featureData}/>
       }
-      <section>
+      <section className='lists'>
         {dataMovies.map((item, key) => (
           <ListMovieRow key={key} title={item.title} items={item.items}/>
         ))}
