@@ -6,6 +6,11 @@ const FeaturedMovie = ({item}) => {
     let genres = []
     for (let i in item.data.genres) {
         genres.push(item.data.genres[i].name)
+    };
+
+    let description = item.data.overview;
+    if(item.data.overview.length > 250){
+        description = description.substring(0, 250)+("...")
     }
 
     return (
@@ -18,7 +23,7 @@ const FeaturedMovie = ({item}) => {
                         <div className="featured--year">{firstDate.getFullYear()}</div>
                         <div className="featured--seasons">{item.data.number_of_seasons} Temporada{item.data.number_of_seasons > 1 ? "s" : ""}</div>
                     </div>
-                    <div className="featured--description">{item.data.overview}</div>
+                    <div className="featured--description">{description}</div>
                     <div className="featured--buttons">
                         <a href={`/watch/${item.data.id}`} type="button" className="viewButton">&#9654; Assistir</a>
                         <a href={`/list/add/${item.data.id}`} type="button" className="myListButton">+ Minha Lista</a>

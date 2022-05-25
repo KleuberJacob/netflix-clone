@@ -12,7 +12,7 @@
 }
 
 .movieRow--list {
-    width: 99999999px;
+    transition: all ease 0.7s;
 }
 
 .movieRow--item {
@@ -29,4 +29,47 @@
 
 .movieRow--item img:hover {
     transform: scale(1);
+}
+
+.movieRow--before {
+    position: absolute;
+    width: 40px;
+    height: 225px;
+    background-color: rgba(0, 0, 0, 0.6);
+    left: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.movieRow--next {
+    position: absolute;
+    width: 40px;
+    height: 225px;
+    background-color: rgba(0, 0, 0, 0.6);
+    right: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.movieRow:hover .movieRow--before,
+.movieRow:hover .movieRow--next {
+    opacity: 1;
+    transition: all ease 1s;
+}
+
+@media (max-width: 760px) {
+    .movieRow--before,
+    .movieRow--next {
+        opacity: 1;
+    }
 }
