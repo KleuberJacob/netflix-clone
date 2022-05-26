@@ -8,13 +8,8 @@
 </div>
 
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/55764961/160434177-204d9beb-c8e7-4ad2-979b-929d32bc209e.png" width="600px"/>
+    <img src="https://user-images.githubusercontent.com/55764961/170581214-516de198-efa7-4ba9-ad20-e15cf6db70b7.png" width="600px"/>
 </div>
-
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/55764961/160434538-bd6ff2fa-5986-40d3-baba-656c71ebf9cc.png" width="600px"/>
-</div>
-
 
 ## Features
 >* Visualização do filme/série em destaque. 
