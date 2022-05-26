@@ -4,7 +4,7 @@
 
 ## Imagens
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/55764961/160433252-095bcca2-1c40-4e33-bd77-115e09a6ae56.png" width="600px"/>
+    <img src="https://github.com/KleuberJacob/netflix-clone/files/8782121/Apresentacao.sem.titulo.pdf" width="600px"/>
 </div>
 
 <div align="center">
